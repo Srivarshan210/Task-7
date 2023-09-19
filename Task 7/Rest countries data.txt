@@ -1,0 +1,75 @@
+//a countries from Asia continent /region using Filter function
+
+ 
+       function printData() {
+   const countries = JSON.parse(this.responseText);     
+   let asianCountries = countries.filter((count) => count.region === "Asia");
+   console.log(asianCountries);
+ }    
+       
+var request = new XMLHttpRequest();
+request.addEventListener("load", printData);
+request.open("GET", "https://restcountries.com/v3.1/all");
+request.send()
+
+
+
+
+//b.countries with a population of less than 2 lakhs using Filter function
+
+
+ function printData() {
+   const countries = JSON.parse(this.responseText);     
+   let smallCountries = countries.filter((count) => count.population<200000);
+   console.log(smallCountries);
+ }    
+       
+var request = new XMLHttpRequest();
+request.addEventListener("load", printData);
+request.open("GET", "https://restcountries.com/v3.1/all");
+request.send();
+
+
+//C.printing countries data name,capital,flag, using forEach 
+
+
+
+ function printData() {
+   const countries = JSON.parse(this.responseText);
+  countries.forEach((count) => console.log(count.name.official, count.capital,count.flag.png));
+}    
+     var request = new XMLHttpRequest();
+     request.addEventListener("load", printData);
+     request.open("GET", "https://restcountries.com/v3.1/all");
+     request.send(); 
+      
+
+
+//d.total population of countries using reduce function
+
+
+  function printData() {
+   const countries = JSON.parse(this.responseText);     
+   let totalpopulation = countries.reduce((sum,count) => sum+ count.population,0);
+   console.log(totalpopulation);
+ }    
+       
+var request = new XMLHttpRequest();
+request.addEventListener("load", printData);
+request.open("GET", "https://restcountries.com/v3.1/all");
+request.send();
+
+//.ecountry which uses US Dollars as currency.
+
+     
+       function printData() {
+   const countries = JSON.parse(this.responseText);     
+   let usdCountries = countries.filter((count) =>  count.currencies?.USD?.name
+   );
+   console.log(usdCountries);
+ }    
+       
+var request = new XMLHttpRequest();
+request.addEventListener("load", printData);
+request.open("GET", "https://restcountries.com/v3.1/all");
+request.send();
